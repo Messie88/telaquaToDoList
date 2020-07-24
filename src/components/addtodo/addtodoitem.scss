@@ -1,0 +1,44 @@
+.add-todo {
+    
+
+    form{
+        width: 400px;
+        height: 150px;
+        background: rgba(161, 160, 160, 0.192);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 20px;
+
+        input, textarea {
+            border: none;
+            border-bottom: 1px solid #BCBCCB;
+            background: transparent;
+            margin-bottom: 5px;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border: none;
+            border-bottom: 1px solid #000;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            button {
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            background: rgba(100, 148, 237, 0.692);
+            border: none;
+
+            &:hover {
+                background: cornflowerblue;
+            }
+        }
+        }
+    }
+}

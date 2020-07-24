@@ -1,0 +1,37 @@
+.note {
+  background: rgba(128, 128, 128, 0.103);
+  border-bottom: 1px solid rgba(20, 20, 20, 0.452);
+  width: 1360px;
+  margin: 0 auto;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+
+
+  h3 {
+    font-size: 1em;
+    margin-bottom: 6px;
+    font-weight: bold;
+  }
+
+    p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  button {
+    position: relative;
+    margin-right: 10px;
+    color: #fff;
+    border: 1px solid #eee;
+    background: #000;
+    width: 70px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+  }
+}
