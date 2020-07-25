@@ -1,6 +1,8 @@
 import React from "react";
 
-import './note.scss'
+import IosTrash from 'react-ionicons/lib/IosTrash';
+
+import './note.scss';
 
 function Note(props) {
   function handleClick() {
@@ -8,12 +10,15 @@ function Note(props) {
   }
 
   return (
-    <div className="note">
-      <h3>{props.title}</h3>
-      <p>{props.description}</p>
-      <p>{props.status}</p>
-      <button onClick={handleClick}>DELETE</button>
+    <div className='note-section'>
+      <div className="note">
+        <h3>{props.title}</h3>
+        <p className='desc'>{props.description}</p>
+        <p>{props.status}</p>
+      </div>
+      <button onClick={handleClick}><IosTrash /></button>
     </div>
+    
   );
 }
 

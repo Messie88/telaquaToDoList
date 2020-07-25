@@ -1,27 +1,83 @@
 .hero {
     position: relative;
-    top: 100px;
-    height: 500px;
+    top: 40px;
+    height: 600px;
 
     .note-input {
         position: absolute;
-        top: -200px;
+        top: -120px;
         left: 35%;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px auto;
+        align-items: center;
+        height: 40px;
+        width: 90vw;
+
+        .search {
+            color: #BCBCCB;
+            display: flex;
+    
+            span {
+                font-size: 20px;
+                width: 20px;
+                height: 40px;
+                color: black;
+            }
+        }
+    
+        .all-todos {
+            ul {
+                border: 1px solid #D7DAE2; 
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                width: 380px;
+
+                button {
+                    
+                    padding: 10px 20px;
+                    background: transparent;
+                    border: none;
+                    border-right: 1px solid #D7DAE2 !important;
+                    cursor: pointer;
+
+                    &:focus {
+                        border: none;
+                    }
+
+                    &:last-child {
+                        border-right: none !important;
+                    }
+                }
+            }
+        }
     }
 
     .legend {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         text-transform: uppercase;
-        background: rgba(31, 30, 30, 0.336);
+        background: rgba(128, 128, 128, 0.103);
         height: 40px;
-        width: 95%;
+        width: 90vw;
         margin: 0 auto;
 
         h4 {
             font-weight: 100;
             font-size: 15px;
+            position: relative;
+
+            &:first-child {
+                left: 50px;
+            }
+            &:last-child {
+                right: 120px;
+            }
         }
     }
 

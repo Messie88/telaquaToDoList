@@ -15,11 +15,6 @@ const AddToDoItem = (props) => {
     const handleChange = e => {
         const {name, value} = e.target;
 
-        if (name === 'Done') {
-            setNote(note.status= 'Done');
-            console.log(note.status);
-        }
-
         setNote( prevNote => {
             return {
                 ...prevNote,
@@ -51,25 +46,25 @@ const AddToDoItem = (props) => {
             <textarea 
             value={note.description}
             rows='3'
-            name="content" 
+            name="description" 
             placeholder="description"
             onChange={handleChange}
             />
             <div className="footer">
                 <div className="input">
                     <input 
-                    type="radio" id="male" name="To Do" 
-                    value={note.status}
+                    type="radio" name="status" 
+                    value="To Do"
                     onChange={handleChange}
                      />
                     <label>To Do</label>
-                    <input type="radio" id="female" name="In Progress" 
-                    value={note.status}
+                    <input type="radio" name="status" 
+                    value="In Progress"
                     onChange={handleChange}
                     />
                     <label>In Progress</label>
-                    <input type="radio" id="other" name="Done" 
-                    value={note.status} 
+                    <input type="radio" name="status" 
+                    value="Done"
                     onChange={handleChange}
                     />
                     <label>Done</label>
