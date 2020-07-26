@@ -1,25 +1,23 @@
 import React from "react";
 
-import IosTrash from 'react-ionicons/lib/IosTrash';
+
+import NoteItem from '../noteItem/noteItem'
 
 import './note.scss';
 
-function Note(props) {
-  function handleClick() {
-    props.onDelete(props.id);
-  }
+function NoteList(props) {
 
   return (
-    <div className='note-section'>
-      <div className="note">
-        <h3>{props.title}</h3>
-        <p className='desc'>{props.description}</p>
-        <p>{props.status}</p>
+      <div className='note'>
+         { props.notes.map((noteItem, index) => {
+          
+            return <NoteItem key={index} id={index} note={noteItem} delete={() => {
+              return props.onDelete(index)
+              }} />
+         })}
       </div>
-      <button onClick={handleClick}><IosTrash /></button>
-    </div>
     
   );
 }
 
-export default Note;
+export default NoteList;

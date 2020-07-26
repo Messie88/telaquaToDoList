@@ -1,54 +1,11 @@
-.note-section {
+.note {
   display: flex;
   width: 90vw;
   margin: 0 auto;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.103);
-
-.note {
-  width: 1300px;
-  margin: 0 ;
   height: 40px;
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
   padding: 0 50px;
 
-
-  h3 {
-    font-size: 1em;
-    margin-bottom: 6px;
-    font-weight: bold;
-  }
-
-  .desc {
-      position: absolute;
-      width: 400px;
-      right: 418px;
-      overflow: hidden;
-  }
   
-  p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    position: relative;
-    
-    &:last-child {
-      width: 100px;
-      left: 20px;
-      font-size: .85em;
-    }
-  }  
-}
-
-button {
-    position: relative;
-    //margin-right: 10px;
-    color: #fff;
-    //border: 1px solid #eee;
-    //background: #000;
-    //width: 70px;
-    //height: 36px;
-    cursor: pointer;
-    outline: none;
-}
 }

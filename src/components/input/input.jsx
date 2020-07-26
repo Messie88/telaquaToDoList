@@ -2,10 +2,13 @@ import React from "react";
 
 import './input.scss';
 
-const Input = () => {
+const Input = (props) => {
     return (
         <div className="input">
-            <input type="text" />
+            <input 
+            type="search" 
+            placeholder='Search'
+            onChange={props.handleChange} />
         </div>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import AddToDoItem from '../addtodo/addtodoitem';
-import Note from "../note/note";
+import NoteList from "../note/note";
 import Input from "../input/input";
 
 import IosSearchOutline from 'react-ionicons/lib/IosSearchOutline';
@@ -13,7 +13,9 @@ const HeroSection = () => {
     
     const [clicked, setClick] = useState(false);
     const [notes, setNotes] = useState([]);
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState({
+        search: ''
+    });
     const [todoCategory, setTodoCategory]  = useState(null);
 
     const handleClick = () => {
@@ -39,21 +41,6 @@ const HeroSection = () => {
                [name] : value}
             }
         );
-
-        if (name === 'All') {
-            notes/*.map((note, index) => {
-                return <Note
-                key={index}
-               id={index}
-               title={note.title}
-               description={note.description}
-               status={note.status}
-               onDelete={deleteNote}
-                />
-            })*/
-            .filter( note => 
-                note.title.toLowercase().includes(search.toLocaleLowerCase()) )
-        }
     }
 
     function deleteNote(id) {
@@ -64,8 +51,9 @@ const HeroSection = () => {
     });
   }
 
-    /*const filtered = notes.filter(note => 
-        note.name.toLowerCase() )*/
+    const filtered = notes.filter(note => {
+        return note.title.toString().toLowerCase().includes(search.toString().toLowerCase())
+    });
 
     return (
         <div className="hero">
@@ -76,15 +64,13 @@ const HeroSection = () => {
             <div className="navbar">
                 <div className="search">
                     <span><IosSearchOutline /></span>
-                    {/*<Input onChange={} />*/}
-                    <input 
-                    type="search" 
-                    placeholder='Search'
-                    onChange={e => {
-                        setSearch(e.target.value)
+                    <Input 
+                    handleChange={e => {
+                        setSearch({search: e.target.value})
                     }}
                     />
                 </div>
+                
                 <div className="all-todos">
                     <ul>
                         <li><button name="All" value='All' onClick={handleChange}>All</button></li>
@@ -102,18 +88,10 @@ const HeroSection = () => {
             </div>
 
             <div className="note-list">
-
-            { notes.map((noteItem, index) => {
-             return (
-             <Note
-               key={index}
-               id={index}
-               title={noteItem.title}
-               description={noteItem.description}
-               status={noteItem.status}
-               onDelete={deleteNote}
-             />)
-             })}
+            <NoteList 
+            notes={notes} 
+            onDelete={deleteNote}
+            />
             </div>
             <button className='add' onClick={handleClick}>Add</button>
         </div>

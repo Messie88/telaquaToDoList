@@ -1,0 +1,51 @@
+.note-item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.103);
+    
+    .note-item-content {
+        width: 98%;
+        height: 100%;
+        display: flex;
+        padding: 0 50px;
+        justify-content: space-between;
+
+        h3 {
+            font-size: 1em;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+        
+        p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            position: relative;
+            
+            &:last-child {
+                width: 100px;
+                left: 20px;
+                font-size: .85em;
+            }
+        }  
+        
+        .desc {
+            position: absolute;
+            width: 400px;
+            right: 410px;
+            overflow: hidden;
+        }
+
+        button {
+            position: relative;
+            cursor: pointer;
+            outline: none;
+        }
+    }
+    
+    
+    
+  
+  
+}
