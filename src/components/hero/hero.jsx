@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import AddToDoItem from '../addtodo/addtodoitem';
 import NoteList from "../note/note";
 import Input from "../input/input";
+import ErrorBoundary from '../errorBoundary'
+
 
 import IosSearchOutline from 'react-ionicons/lib/IosSearchOutline';
 
@@ -70,7 +72,7 @@ const HeroSection = () => {
                     }}
                     />
                 </div>
-                
+
                 <div className="all-todos">
                     <ul>
                         <li><button name="All" value='All' onClick={handleChange}>All</button></li>
@@ -88,10 +90,28 @@ const HeroSection = () => {
             </div>
 
             <div className="note-list">
-            <NoteList 
-            notes={notes} 
-            onDelete={deleteNote}
-            />
+                {notes.length === 0 ?
+                    <div style={
+                        {
+                            height: '300px', 
+                            width: '150px',
+                            lineHeight: '300px', 
+                            left: '46%', 
+                            position: 'relative',
+                            fontWeight: '100'
+                        }}
+                    >
+                        <p className="tc">There is no notes</p>
+                    </div>
+                    :
+                    <ErrorBoundary>
+                        <NoteList 
+                        notes={notes} 
+                        onDelete={deleteNote}
+                        />
+                    </ErrorBoundary>
+                    
+                }
             </div>
             <button className='add' onClick={handleClick}>Add</button>
         </div>
