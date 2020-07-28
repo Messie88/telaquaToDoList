@@ -5,7 +5,7 @@ import NoteItem from '../noteItem/noteItem'
 
 import './note.scss';
 
-function NoteList(props) {
+const NoteList = (props) => {
 
   return (
       <div className='note'>

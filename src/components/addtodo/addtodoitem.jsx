@@ -47,7 +47,7 @@ const AddToDoItem = (props) => {
             value={note.description}
             rows='3'
             name="description" 
-            placeholder="description"
+            placeholder="Description"
             onChange={handleChange}
             />
             <div className="footer">

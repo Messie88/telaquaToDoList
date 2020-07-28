@@ -14,7 +14,28 @@ import './hero.scss';
 const HeroSection = () => {
     
     const [clicked, setClick] = useState(false);
-    const [notes, setNotes] = useState([]);
+    const [notes, setNotes] = useState([
+        {
+            title: 'aaaaaaa',
+            description: 'bbbbbb',
+            status: 'Done'
+        },
+        {
+            title: 'bbbbbbb',
+            description: 'ccccccc',
+            status: 'In Progress'
+        },
+        {
+            title: 'cccccc',
+            description: 'dddddd',
+            status: 'To Do'
+        },
+        {
+            title: 'ddddaaa',
+            description: 'zzzzzzz',
+            status: 'Done'
+        }
+    ]);
     const [search, setSearch] = useState({
         search: ''
     });
@@ -54,7 +75,7 @@ const HeroSection = () => {
   }
 
     const filtered = notes.filter(note => {
-        return note.title.toString().toLowerCase().includes(search.toString().toLowerCase())
+        return note.title.toString().toLowerCase().includes(search.search.toString().toLowerCase())
     });
 
     return (
@@ -101,12 +122,12 @@ const HeroSection = () => {
                             fontWeight: '100'
                         }}
                     >
-                        <p className="tc">There is no notes</p>
+                        <p>There is no notes</p>
                     </div>
                     :
                     <ErrorBoundary>
                         <NoteList 
-                        notes={notes} 
+                        notes={filtered} 
                         onDelete={deleteNote}
                         />
                     </ErrorBoundary>
