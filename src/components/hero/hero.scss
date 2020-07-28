@@ -3,12 +3,6 @@
     top: 40px;
     height: 600px;
 
-    .note-input {
-        position: absolute;
-        top: -120px;
-        left: 35%;
-    }
-
     .navbar {
         display: flex;
         justify-content: space-between;
@@ -42,11 +36,12 @@
                     padding: 10px 20px;
                     background: transparent;
                     border: none;
-                    border-right: 1px solid #D7DAE2 !important;
                     cursor: pointer;
+                    color: #4D4F5C;
 
                     &:focus {
                         border: none;
+                        outline: none;
                     }
 
                     &:last-child {
@@ -62,10 +57,11 @@
         justify-content: space-between;
         align-items: center;
         text-transform: uppercase;
-        background: rgba(128, 128, 128, 0.103);
+        background: #F5F6FA 0% 0% no-repeat padding-box;;
         height: 40px;
         width: 90vw;
         margin: 0 auto;
+        color: #4D4F5C;
 
         h4 {
             font-weight: 100;
@@ -84,6 +80,18 @@
     .add {
         position: absolute;
         bottom: 50px;
-        right: 50px;
+       right: 50px;
+        width: 50px;
+        height: 40px;
+        text-align: center;
+        background: #3B86FF;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+            background: cornflowerblue;
+        }
     }
+    
 }

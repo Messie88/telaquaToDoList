@@ -5,6 +5,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(128, 128, 128, 0.103);
+    color: #4D4F5C;
     
     .note-item-content {
         width: 98%;
@@ -15,13 +16,15 @@
         align-items: center;
 
         h3 {
-            font-size: 1em;
+            font-size: .9em;
             font-weight: bold;
         }
         
         p {
-            font-size: 1.1em;
+            font-size: .9em;
             position: relative;
+            display: flex;
+            align-items: center;
             
             &:last-child {
                 width: 100px;
@@ -33,14 +36,14 @@
         .desc {
             position: absolute;
             width: 400px;
+            height: 35px;
             right: 410px;
             overflow: hidden;
         }
 
-        button {
+        .btn {
             position: relative;
             cursor: pointer;
-            outline: none;
         }
     }
     

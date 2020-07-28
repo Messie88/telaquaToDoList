@@ -11,7 +11,12 @@ const NoteItem = (props) => {
             <p className='desc'>{props.note.description}</p>
             <p>{props.note.status}</p>
         </div>
-        <button onClick={props.delete}><IosTrash /></button>
+        <button onClick={props.delete}>
+            <IosTrash
+            color='#4D4F5C'
+             className='btn'
+            />
+        </button>
     </div>
 }
 

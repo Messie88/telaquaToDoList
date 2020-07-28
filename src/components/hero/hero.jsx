@@ -17,29 +17,29 @@ const HeroSection = () => {
     const [notes, setNotes] = useState([
         {
             title: 'aaaaaaa',
-            description: 'bbbbbb',
+            description: 'liquip ex ea commodo. Lorem ipsum elit ',
             status: 'Done'
         },
         {
             title: 'bbbbbbb',
-            description: 'ccccccc',
+            description: 'Lorem ipsum elit, sed do eiusmod',
             status: 'In Progress'
         },
         {
             title: 'cccccc',
-            description: 'dddddd',
+            description: 'tempor. Ut enim ad minim veniam',
             status: 'To Do'
         },
         {
             title: 'ddddaaa',
-            description: 'zzzzzzz',
+            description: 'quis nostrud exercitation ullamco ',
             status: 'Done'
         }
     ]);
     const [search, setSearch] = useState({
         search: ''
     });
-    const [todoCategory, setTodoCategory]  = useState(null);
+    const [todoCategory, setTodoCategory]  = useState('');
 
     const handleClick = () => {
         setClick(true);
@@ -56,16 +56,6 @@ const HeroSection = () => {
         })
     }
 
-    const handleChange = e => {
-        const {name, value} = e.target;
-        setTodoCategory(prev => {
-           return { 
-               ...prev,
-               [name] : value}
-            }
-        );
-    }
-
     function deleteNote(id) {
     setNotes(prevNotes => {
       return prevNotes.filter((noteItem, index) => {
@@ -77,6 +67,21 @@ const HeroSection = () => {
     const filtered = notes.filter(note => {
         return note.title.toString().toLowerCase().includes(search.search.toString().toLowerCase())
     });
+
+    const filteredByCat = e => {
+        const {name, value} = e.target;
+        setTodoCategory(prevNote => {
+            setTodoCategory({
+                ...prevNote,
+                [name]: value
+            })
+        })
+        const categoryNotes = notes.filter(note => 
+            note.status === value
+        );
+        console.log(categoryNotes);
+    }
+    
 
     return (
         <div className="hero">
@@ -96,11 +101,12 @@ const HeroSection = () => {
 
                 <div className="all-todos">
                     <ul>
-                        <li><button name="All" value='All' onClick={handleChange}>All</button></li>
-                        <li><button name="To Do" value='To Do' onClick={handleChange}>To Do</button></li>
-                        <li><button name="In Progress" value='In Progress' onClick={handleChange}>In Progress</button></li>
-                        <li><button name="Done" value='Done' onClick={handleChange}>Done</button></li>
+                        <li><button name="category" value='All' onClick={filteredByCat}>All</button></li>
+                        <li><button name="category" value='To Do' onClick={filteredByCat}>To Do</button></li>
+                        <li><button name="category" value='In Progress' onClick={filteredByCat}>In Progress</button></li>
+                        <li><button name="category" value='Done' onClick={filteredByCat}>Done</button></li>
                     </ul>
+                    
                 </div>
             </div>
 
@@ -111,18 +117,18 @@ const HeroSection = () => {
             </div>
 
             <div className="note-list">
-                {notes.length === 0 ?
+                {!filtered.length?
                     <div style={
                         {
                             height: '300px', 
-                            width: '150px',
+                            width: '180px',
                             lineHeight: '300px', 
-                            left: '46%', 
+                            left: '45%', 
                             position: 'relative',
                             fontWeight: '100'
                         }}
                     >
-                        <p>There is no notes</p>
+                        <p>There is no matched notes</p>
                     </div>
                     :
                     <ErrorBoundary>
@@ -131,7 +137,6 @@ const HeroSection = () => {
                         onDelete={deleteNote}
                         />
                     </ErrorBoundary>
-                    
                 }
             </div>
             <button className='add' onClick={handleClick}>Add</button>

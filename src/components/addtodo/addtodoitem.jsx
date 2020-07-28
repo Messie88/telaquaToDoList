@@ -69,9 +69,10 @@ const AddToDoItem = (props) => {
                     />
                     <label>Done</label>
                 </div>
-            
-
-            <button type='submit' onClick={handleClick}>Add</button>
+                <div className="button">
+                    <button type='submit' onClick={props.onSubmit} className='esc'>Cancel</button>
+                    <button type='submit' onClick={handleClick}>Add</button>
+                </div>
             </div>
         </form>
     </div>)
